@@ -8,19 +8,19 @@ export default {
     green_mid: "#CBE4B4",
     green_light: "#E5F0DB",
 
-    gray_1: "#1B1D1E",
-    gray_2: "#333638",
-    gray_3: "#5C6265",
-    gray_4: "#B9BBBC",
-    gray_5: "#DDDEDF",
-    gray_6: "#EFF0F0",
-    gray_7: "#FAFAFA",
+    gray_100: "#1B1D1E",
+    gray_200: "#333638",
+    gray_300: "#5C6265",
+    gray_400: "#B9BBBC",
+    gray_500: "#DDDEDF",
+    gray_600: "#EFF0F0",
+    gray_700: "#FAFAFA",
 
     white: "#FFFFFF",
   },
   FONT_FAMILY: {
-    REGULAR: "Roboto_400Regular",
-    BOLD: "Roboto_700Bold",
+    REGULAR: "NunitoSans_400Regular",
+    BOLD: "NunitoSans_700Bold",
   },
   FONT_SIZE: {
     SM: 14,
