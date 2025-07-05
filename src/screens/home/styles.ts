@@ -5,6 +5,7 @@ export const Container = styled(SafeAreaView)`
   flex: 1;
   padding: 24px;
   background-color: ${({ theme }) => theme.COLORS.gray_700};
+  gap: 24px;
 `;
 
 export const TextHome = styled.Text`
