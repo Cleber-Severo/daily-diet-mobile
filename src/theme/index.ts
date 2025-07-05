@@ -1,20 +1,22 @@
 export default {
   COLORS: {
-    WHITE: "#FFFFFF",
+    red_dark: "#BF3B44",
+    red_mid: "#F3BABD",
+    red_light: "#F4E6E7",
 
-    GREEN_700: "#00875F",
-    GREEN_500: "#00B37E",
+    green_dark: "#639339",
+    green_mid: "#CBE4B4",
+    green_light: "#E5F0DB",
 
-    RED: "#F75A68",
-    RED_DARK: "#AA2834",
+    gray_1: "#1B1D1E",
+    gray_2: "#333638",
+    gray_3: "#5C6265",
+    gray_4: "#B9BBBC",
+    gray_5: "#DDDEDF",
+    gray_6: "#EFF0F0",
+    gray_7: "#FAFAFA",
 
-    GRAY_700: "#121214",
-    GRAY_600: "#202024",
-    GRAY_500: "#29292E",
-    GRAY_400: "#323238",
-    GRAY_300: "#7C7C8A",
-    GRAY_200: "#C4C4CC",
-    GRAY_100: "#E1E1E6",
+    white: "#FFFFFF",
   },
   FONT_FAMILY: {
     REGULAR: "Roboto_400Regular",
