@@ -1,14 +1,19 @@
 import { ButtonIconTypeStyleProps } from "@screens/home/components/StatisticsBtn/styles";
 import { ArrowLeftIcon } from "phosphor-react-native";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
-export const Container = styled(SafeAreaView)`
-  background-color: ${({ theme }) => theme.COLORS.gray_700};
-  flex: 1;
-  padding: 24px;
+type ContainerProps = {
+  type: ButtonIconTypeStyleProps;
+};
 
-  position: relative;
+export const Container = styled(View)<ContainerProps>`
+  background-color: ${({ theme, type }) => (type === "PRIMARY" ? theme.COLORS.green_light : theme.COLORS.red_light)};
+
+  flex: 1;
+
+  padding-top: 20px;
 `;
 
 type Props = {
@@ -17,12 +22,33 @@ type Props = {
 
 export const IconWrapper = styled.TouchableOpacity`
   position: absolute;
-  left: 0px;
-  top: 10px;
+  left: 24px;
+  top: 18px;
 `;
 
 export const Icon = styled(ArrowLeftIcon).attrs<Props>(({ theme, type }) => ({
   size: 24,
   color: type === "PRIMARY" ? theme.COLORS.green_dark : theme.COLORS.red_dark,
   weight: "regular",
-}))``;
+}))<Props>``;
+
+type HeaderProps = {
+  type: ButtonIconTypeStyleProps;
+};
+
+export const Header = styled.View<HeaderProps>`
+  background-color: ${({ theme, type }) => (type === "PRIMARY" ? theme.COLORS.green_light : theme.COLORS.red_light)};
+
+  padding: 38px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  position: relative;
+`;
+
+export const Content = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.gray_700};
+
+  flex: 1;
+  border-radius: 22px 22px 0 0;
+`;
