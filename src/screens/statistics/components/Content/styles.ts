@@ -6,9 +6,24 @@ export const Container = styled.View`
   padding: 24px;
 `;
 
+export const Title = styled.Text`
+  color: ${({ theme }) => theme.COLORS.gray_100};
+
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: bold;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+
+  margin: 10px 0;
+`;
+
+export const CardWrapper = styled.View`
+  flex: 1;
+`;
+
 export const MealSplitContainer = styled.View`
   flex-direction: row;
-
-  box-sizing: border-box;
+  justify-content: space-between;
   gap: 12px;
 `;
