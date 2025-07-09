@@ -19,7 +19,7 @@ export const Container = styled.View<Props>`
   justify-content: center;
   align-items: center;
 
-  padding: 24px;
+  padding: 24px 18px;
 `;
 
 export const MainText = styled.Text`
@@ -34,4 +34,6 @@ export const Description = styled.Text`
 
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   font-size: 14px;
+
+  text-align: center;
 `;
