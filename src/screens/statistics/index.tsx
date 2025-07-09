@@ -1,7 +1,9 @@
 import { Text, View } from "react-native";
-import { Container, Content, Header, Icon, IconWrapper } from "./styles";
+import { Container, Header, Icon, IconWrapper } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { Description, MainPercentage } from "@screens/home/components/StatisticsBtn/styles";
+import { ContentWrapper } from "@components/ContentWrapper";
+import { Content } from "./components/Content";
 
 export function Statistics() {
   const navigation = useNavigation();
@@ -16,15 +18,7 @@ export function Statistics() {
         </IconWrapper>
       </Header>
 
-      <Content
-        style={{
-          shadowColor: "#000",
-          shadowOffset: { width: 0, height: -2 },
-          shadowOpacity: 0.1,
-          shadowRadius: 4,
-          elevation: 4, // Android shadow
-        }}
-      ></Content>
+      <Content />
     </Container>
   );
 }

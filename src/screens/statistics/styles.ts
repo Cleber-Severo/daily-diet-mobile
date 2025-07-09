@@ -45,10 +45,3 @@ export const Header = styled.View<HeaderProps>`
   border-radius: 8px;
   position: relative;
 `;
-
-export const Content = styled.View`
-  background-color: ${({ theme }) => theme.COLORS.gray_700};
-
-  flex: 1;
-  border-radius: 22px 22px 0 0;
-`;
