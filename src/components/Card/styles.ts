@@ -19,8 +19,6 @@ export const Container = styled.View<Props>`
   justify-content: center;
   align-items: center;
 
-  position: relative;
-
   padding: 24px;
 `;
 

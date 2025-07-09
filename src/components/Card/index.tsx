@@ -1,15 +1,15 @@
 import { CardColors, Container, Description, MainText } from "./styles";
 
 interface Props {
-  mainText: string;
+  amount: number;
   description: string;
-  type: CardColors;
+  type?: CardColors;
 }
 
-export function Card({ type = "DEFAULT", mainText, description }: Props) {
+export function Card({ type = "DEFAULT", amount, description }: Props) {
   return (
     <Container type={type}>
-      <MainText>{mainText}</MainText>
+      <MainText>{amount}</MainText>
       <Description>{description}</Description>
     </Container>
   );
