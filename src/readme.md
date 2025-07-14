@@ -2,9 +2,9 @@
 
   - [x] Home Header;
   - [x] General overview card ;
-  - [ ] Create meal section ;
-  - [ ] Shold go to create meal page on click
-  - [ ] Meals list section;
+  - [x] Create meal section ;
+  - [ ] Should go to create meal page on click
+  - [x] Meals list section;
     - [ ] Specific meal page that has an edit button
 
 - [x] Statistics page with all main data simplified as a dashboard;
