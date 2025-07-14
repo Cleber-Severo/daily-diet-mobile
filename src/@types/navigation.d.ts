@@ -4,11 +4,15 @@ export declare global {
       home: undefined;
       statistics: undefined;
       createMeal: undefined;
-      createMealFeedback: {
-        status: "onDiet" | "offDiet";
+      mealForm: {
+        situation: "create" | "edit";
+        mealId: string;
       };
       meal: {
-        mealName: string;
+        mealId: string;
+      };
+      createMealFeedback: {
+        status: "onDiet" | "offDiet";
       };
     }
   }

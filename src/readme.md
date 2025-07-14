@@ -1,0 +1,18 @@
+- [ ] Homepage
+
+  - [x] Home Header;
+  - [x] General overview card ;
+  - [ ] Create meal section ;
+  - [ ] Shold go to create meal page on click
+  - [ ] Meals list section;
+    - [ ] Specific meal page that has an edit button
+
+- [x] Statistics page with all main data simplified as a dashboard;
+- [ ] Create Meal page;
+  - [ ] Meal on Diet Success page;
+  - [ ] Meal off Diet Failed page;
+- [ ] Edit Meal Page;
+- [ ] Use same form for create/edit;
+
+- [ ] Save all data on the async storage
+  - [ ] make all methods to creat/edit/list/delete the meals list.
