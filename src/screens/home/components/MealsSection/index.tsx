@@ -3,6 +3,7 @@ import { Container, MealHeader, MealsList, Title } from "./styles";
 import { Button } from "@components/Button";
 import { SectionList, Text } from "react-native";
 import { MealItem } from "@components/MealItem";
+import { useNavigation } from "@react-navigation/native";
 
 const mealsList = [
   {
@@ -93,6 +94,8 @@ const mealsList = [
 ];
 
 export function MealsSection() {
+  const navigation = useNavigation()
+
   return (
     <Container>
       <Title>Refeições</Title>
@@ -100,7 +103,7 @@ export function MealsSection() {
       <Button
         title="Nova refeição"
         icon={<Plus size={18} color="#FFF" weight="bold" />}
-        onPressFn={() => console.log('Meal function callback')}
+        onPressFn={() => navigation.navigate('createMeal')}
       />
 
       <MealsList
