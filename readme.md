@@ -1,11 +1,11 @@
-- [ ] Homepage
+- [x] Homepage
 
   - [x] Home Header;
   - [x] General overview card ;
   - [x] Create meal section ;
-  - [ ] Should go to create meal page on click
+  - [x] Should go to create meal page on click
   - [x] Meals list section;
-    - [ ] Specific meal page that has an edit button
+    - [x] Specific meal page that has an edit button
 
 - [x] Statistics page with all main data simplified as a dashboard;
 - [ ] Create Meal page;
