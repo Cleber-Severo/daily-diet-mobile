@@ -5,7 +5,7 @@
   - [x] Create meal section ;
   - [x] Should go to create meal page on click
   - [x] Meals list section;
-    - [x] Specific meal page that has an edit button
+    - [x] Specific meal page that has an edit and delete buttons
 
 - [x] Statistics page with all main data simplified as a dashboard;
 - [ ] Create Meal page;
