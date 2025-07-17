@@ -1,11 +1,18 @@
 import { ContentWrapper } from "@components/ContentWrapper";
 import { useNavigation } from "@react-navigation/native";
-import { Text } from "react-native";
+import { Alert } from "react-native";
 import { Actions, Container, ContentScroll, DeleteBtn, DeleteIcon, DeleteTitle, Description, DetailContainer, EditBtn, EditIcon, EditTitle, Header, Icon, IconWrapper, Name, TimeLabel, TimeText, Title } from "./styles";
 import { StatusLabel } from "./components/StatusLabel";
+import { useState } from "react";
+import { Button } from "@components/Button";
+import { PencilSimpleLineIcon, Trash } from "phosphor-react-native";
+import DeleteAlert from "./components/DeleteAlert";
 
 export function MealDetails() {
+  const [modalVisible, setModalVisible] = useState(false);
+
   const navigation = useNavigation();
+  const createTwoButtonAlert = () => setModalVisible(true)
 
   return (
     <Container type="SECONDARY">
@@ -35,15 +42,19 @@ export function MealDetails() {
           </DetailContainer>
         </ContentScroll>
 
+        <DeleteAlert modalVisible={modalVisible} setModalVisible={setModalVisible} />
         <Actions>
-          <EditBtn>
-            <EditIcon />
-            <EditTitle>Editar refeição</EditTitle>
-          </EditBtn>
-          <DeleteBtn>
-            <DeleteIcon />
-            <DeleteTitle>Excluir refeição</DeleteTitle>
-          </DeleteBtn>
+          <Button
+            title="Editar refeição"
+            icon={<PencilSimpleLineIcon color={"#FFF"} size={18} />}
+            onPressFn={() => navigation.navigate('editMeal')}
+          />
+          <Button
+            title="Excluir refeição"
+            onPressFn={createTwoButtonAlert}
+            icon={<Trash color={'#000'} size={18} />}
+            variant="OUTLINED"
+          />
         </Actions>
       </ContentWrapper>
     </Container>

@@ -103,7 +103,7 @@ export function MealsSection() {
       <Button
         title="Nova refeição"
         icon={<Plus size={18} color="#FFF" weight="bold" />}
-        onPressFn={() => navigation.navigate('createMeal')}
+        onPressFn={() => navigation.navigate('createMeal', { mealId: 'test_1' })}
       />
 
       <MealsList
