@@ -1,7 +1,8 @@
 import { ContentWrapper } from "@components/ContentWrapper";
 import { useNavigation } from "@react-navigation/native";
 import { Text } from "react-native";
-import { Container, Header, Icon, IconWrapper, Title } from "./styles";
+import { Container, Description, DetailContainer, Header, Icon, IconWrapper, Name, TimeLabel, TimeText, Title } from "./styles";
+import { StatusLabel } from "./components/StatusLabel";
 
 export function MealDetails() {
   const navigation = useNavigation();
@@ -15,7 +16,15 @@ export function MealDetails() {
         <Title>Refeição</Title>
       </Header>
       <ContentWrapper>
-        <Text>meal description here</Text>
+        <DetailContainer>
+          <Name>X-tudo</Name>
+          <Description>Xis completo da lancheria do bairro</Description>
+
+          <TimeLabel>Data e hora</TimeLabel>
+          <TimeText>12/08/2022 às 20:00</TimeText>
+
+          <StatusLabel type="SECONDARY" />
+        </DetailContainer>
       </ContentWrapper>
     </Container>
   );
