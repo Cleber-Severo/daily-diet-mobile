@@ -6,7 +6,7 @@ export const Container = styled(View)`
   background-color: ${({ theme }) => theme.COLORS.gray_500};
 
   flex: 1;
-  padding-top: 20px;
+  padding-top: 8px;
 `;
 
 export const IconWrapper = styled.TouchableOpacity`

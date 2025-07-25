@@ -2,6 +2,7 @@ import { ContentWrapper } from "@components/ContentWrapper";
 import { Container, Header, Icon, IconWrapper, Title } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { Text } from "react-native";
+import MealForm from "@components/MealForm";
 
 export function CreateMeal() {
   const navigation = useNavigation();
@@ -15,7 +16,7 @@ export function CreateMeal() {
         <Title>Nova refeição</Title>
       </Header>
       <ContentWrapper>
-        <Text>creation form here</Text>
+        <MealForm />
       </ContentWrapper>
     </Container>
   );
