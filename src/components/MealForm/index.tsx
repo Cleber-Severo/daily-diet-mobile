@@ -4,13 +4,18 @@ import { InputForm } from './components/Input'
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker'
 import { Button } from '@components/Button'
 import DietBtn from './components/DietBtn'
+import { useNavigation } from '@react-navigation/native'
 
-const MealForm = () => {
+const MealForm = ({ payload = {} }) => {
+  const navigation = useNavigation()
+
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [date, setDate] = useState<Date | null>(null)
   const [time, setTime] = useState<Date | null>(null)
   const [isOnDiet, setIsOnDiet] = useState<Boolean | null>(null)
+
+  const isEdit = Object.keys(payload).length
 
   const openDatePicker = () => {
     DateTimePickerAndroid.open({
@@ -52,6 +57,15 @@ const MealForm = () => {
     console.log("date:", date)
     console.log("description:", description)
     console.log("name:", name)
+
+    if (isEdit) {
+      console.log('edition logic')
+      return
+    }
+
+    navigation.navigate('createMealFeedback', {
+      status: isOnDiet ? 'onDiet' : 'offDiet'
+    })
   }
 
   return (

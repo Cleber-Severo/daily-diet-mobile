@@ -10,8 +10,8 @@
 - [x] Statistics page with all main data simplified as a dashboard;
 - [ ] Create Meal page;
   - [x] Create Meal form
-  - [ ] Meal on Diet Success page;
-  - [ ] Meal off Diet Failed page;
+  - [x] Meal on Diet Success page;
+  - [x] Meal off Diet Failed page;
 - [ ] Edit Meal Page;
 - [ ] Use same form for create/edit;
 
