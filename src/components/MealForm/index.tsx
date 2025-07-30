@@ -6,6 +6,10 @@ import { Button } from '@components/Button'
 import DietBtn from './components/DietBtn'
 import { useNavigation } from '@react-navigation/native'
 
+import { mealsGetAll } from '@storage/meals/mealsGetAll'
+import { mealsCreate } from '@storage/meals/mealsCreate'
+
+
 const MealForm = ({ payload = {} }) => {
   const navigation = useNavigation()
 
@@ -13,7 +17,7 @@ const MealForm = ({ payload = {} }) => {
   const [description, setDescription] = useState('')
   const [date, setDate] = useState<Date | null>(null)
   const [time, setTime] = useState<Date | null>(null)
-  const [isOnDiet, setIsOnDiet] = useState<Boolean | null>(null)
+  const [isOnDiet, setIsOnDiet] = useState<boolean | null>(null)
 
   const isEdit = Object.keys(payload).length
 
@@ -49,19 +53,33 @@ const MealForm = ({ payload = {} }) => {
       })
       : ''
 
-  const handleSubmit = () => {
-    console.log(name, description, date, time, isOnDiet)
+  const handleSubmit = async () => {
+    const mealStorage = await mealsGetAll()
 
-    console.log("isOnDiet:", isOnDiet)
-    console.log("time:", time)
-    console.log("date:", date)
-    console.log("description:", description)
-    console.log("name:", name)
+    if (!date || !time) {
+      console.log("Date or time not selected")
+      return
+    }
+
+    const padZero = (num: number) => String(num).padStart(2, '0')
+
+    const formattedDate = `${padZero(date.getDate())}.${padZero(date.getMonth() + 1)}.${String(date.getFullYear()).slice(-2)}`
+    const formattedTime = `${padZero(time.getHours())}:${padZero(time.getMinutes())}`
+
+    const mealPayload = {
+      name,
+      description,
+      date: formatDate(date),
+      time: formatTime(time),
+      isOnDiet: isOnDiet ?? false,
+    }
 
     if (isEdit) {
       console.log('edition logic')
       return
     }
+
+    await mealsCreate(mealPayload)
 
     navigation.navigate('createMealFeedback', {
       status: isOnDiet ? 'onDiet' : 'offDiet'
