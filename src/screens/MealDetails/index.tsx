@@ -1,18 +1,56 @@
 import { ContentWrapper } from "@components/ContentWrapper";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
 import { Alert } from "react-native";
 import { Actions, Container, ContentScroll, DeleteBtn, DeleteIcon, DeleteTitle, Description, DetailContainer, EditBtn, EditIcon, EditTitle, Header, Icon, IconWrapper, Name, TimeLabel, TimeText, Title } from "./styles";
 import { StatusLabel } from "./components/StatusLabel";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Button } from "@components/Button";
 import { PencilSimpleLineIcon, Trash } from "phosphor-react-native";
 import DeleteAlert from "./components/DeleteAlert";
+import { mealsGetItem } from "@storage/meals/mealsGetItem";
+import { MealListStorage, MealStorage } from "src/@types/meal";
+
+interface RouteParams {
+  mealId: string
+}
 
 export function MealDetails() {
-  const [modalVisible, setModalVisible] = useState(false);
-
   const navigation = useNavigation();
+  const route = useRoute()
+  const { mealId } = route.params as RouteParams
+  console.log("🚀 ~ MealDetails ~ mealId:", mealId)
+
+  const [meal, setMeal] = useState<MealStorage>({
+    id: '',
+    name: '',
+    description: '',
+    date: '',
+    hour: '',
+    isOnDiet: false,
+  }); const [modalVisible, setModalVisible] = useState(false);
+
+
+
+  console.log("🚀 ~ MealDetails ~ meal.hour:", meal.hour)
   const createTwoButtonAlert = () => setModalVisible(true)
+
+  const fetchMeal = async () => {
+    const mealData = await mealsGetItem(mealId);
+    console.log("🚀 ~ fetchMeal ~ mealData:", mealData);
+
+    if (mealData) {
+      setMeal(mealData);
+    } else {
+      Alert.alert("Erro", "Refeição não encontrada.");
+      navigation.goBack();
+    }
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchMeal()
+    }, [mealId])
+  )
 
   return (
     <Container type="SECONDARY">
@@ -32,13 +70,13 @@ export function MealDetails() {
           showsVerticalScrollIndicator={false}
         >
           <DetailContainer>
-            <Name>X-tudo</Name>
-            <Description>Xis completo da lancheria do bairro</Description>
+            <Name>{meal.name}</Name>
+            <Description>{meal.description}</Description>
 
             <TimeLabel>Data e hora</TimeLabel>
-            <TimeText>12/08/2022 às 20:00</TimeText>
+            <TimeText>{meal.date} às {meal.hour}</TimeText>
 
-            <StatusLabel type="SECONDARY" />
+            <StatusLabel type={meal.isOnDiet ? 'PRIMARY' : 'SECONDARY'} />
           </DetailContainer>
         </ContentScroll>
 

@@ -1,4 +1,5 @@
 import { Pressable, SectionList } from "react-native";
+import { MealStorage } from "src/@types/meal";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
@@ -23,10 +24,10 @@ export type Meal = {
 
 type MealSection = {
   date: string;
-  data: Meal[];
+  data: MealStorage[];
 };
 
-export const MealsList = styled(SectionList<Meal, MealSection>).attrs({
+export const MealsList = styled(SectionList<MealStorage, MealSection>).attrs({
   contentContainerStyle: {
     paddingBottom: 24,
   },

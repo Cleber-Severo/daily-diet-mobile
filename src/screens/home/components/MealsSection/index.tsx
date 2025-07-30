@@ -1,9 +1,11 @@
 import { Plus } from "phosphor-react-native";
 import { Container, MealHeader, MealsList, Title } from "./styles";
 import { Button } from "@components/Button";
-import { SectionList, Text } from "react-native";
 import { MealItem } from "@components/MealItem";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useCallback, useState } from "react";
+import { mealsGetAll } from "@storage/meals/mealsGetAll";
+import { MealListStorage } from "src/@types/meal";
 
 const mealsList = [
   {
@@ -96,6 +98,26 @@ const mealsList = [
 export function MealsSection() {
   const navigation = useNavigation()
 
+  const [mealsList, setMealsList] = useState<MealListStorage[]>([])
+
+  async function fetchMeals() {
+    try {
+      const data = await mealsGetAll()
+      setMealsList(data)
+    } catch (error) {
+      console.log(' fetchGroups ~ error:', error)
+    }
+  }
+
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchMeals()
+
+    }, [])
+  )
+
+
   return (
     <Container>
       <Title>Refeições</Title>
@@ -108,9 +130,9 @@ export function MealsSection() {
 
       <MealsList
         sections={mealsList}
-        keyExtractor={(item) => item.mealId}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <MealItem meal={item} />
+          <MealItem {...item} />
         )}
         renderSectionHeader={({ section: { date } }) => (
           <MealHeader>{date}</MealHeader>
