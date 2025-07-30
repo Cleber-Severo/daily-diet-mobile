@@ -8,7 +8,7 @@
     - [x] Specific meal page that has an edit and delete buttons
 
 - [x] Statistics page with all main data simplified as a dashboard;
-- [ ] Create Meal page;
+- [x] Create Meal page;
   - [x] Create Meal form
   - [x] Meal on Diet Success page;
   - [x] Meal off Diet Failed page;
