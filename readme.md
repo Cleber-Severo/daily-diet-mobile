@@ -15,5 +15,11 @@
 - [ ] Edit Meal Page;
 - [ ] Use same form for create/edit;
 
-- [ ] Save all data on the async storage
+- [x] Save all data on the async storage
   - [ ] make all methods to creat/edit/list/delete the meals list.
+    - [x] List all meals;
+    - [x] List meal detail;
+    - [x] Create new meal;
+    - [ ] Delete meal;
+    - [ ] Edit meal;
+    - [ ] Percentages data         
