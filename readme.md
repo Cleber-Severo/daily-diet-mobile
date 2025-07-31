@@ -12,14 +12,14 @@
   - [x] Create Meal form
   - [x] Meal on Diet Success page;
   - [x] Meal off Diet Failed page;
-- [ ] Edit Meal Page;
-- [ ] Use same form for create/edit;
+- [x] Edit Meal Page;
+- [x] Use same form for create/edit;
 
 - [x] Save all data on the async storage
   - [ ] make all methods to creat/edit/list/delete the meals list.
     - [x] List all meals;
     - [x] List meal detail;
     - [x] Create new meal;
-    - [ ] Delete meal;
-    - [ ] Edit meal;
-    - [ ] Percentages data         
+    - [x] Delete meal;
+    - [x] Edit meal;
+    - [ ] Percentages data
