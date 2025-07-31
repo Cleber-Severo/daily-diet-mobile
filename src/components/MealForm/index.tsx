@@ -11,6 +11,7 @@ import { mealsCreate } from '@storage/meals/mealsCreate'
 import { MealStorage } from 'src/@types/meal'
 import { ForkKnife, PencilSimpleLineIcon } from 'phosphor-react-native'
 import { measlEdit } from '@storage/meals/mealsEdit'
+import { Alert } from 'react-native'
 
 
 type MealFormProps = Partial<MealStorage>
@@ -90,23 +91,23 @@ const MealForm = ({ id, description, hour, isOnDiet, name, date }: MealFormProps
       : ''
 
   const handleSubmit = async () => {
-    if (!date || !timeInput) {
-      return
+    if (!dateInput || !timeInput) {
+      Alert.alert('Erro', 'Por favor, preencha data e hora antes de salvar.');
+      return;
     }
 
     const padZero = (num: number) => String(num).padStart(2, '0')
 
-    let formattedDate
-    let formattedTime
+    let formattedDate = ''
+    let formattedTime = ''
 
     if (dateInput && timeInput) {
-      const padZero = (num: number) => String(num).padStart(2, '0');
+      const padZero = (num: number) => String(num).padStart(2, '0')
 
-      formattedDate = `${padZero(dateInput.getDate())}.${padZero(dateInput.getMonth() + 1)}.${String(dateInput.getFullYear()).slice(-2)}`;
-      formattedTime = `${padZero(timeInput.getHours())}:${padZero(timeInput.getMinutes())}`;
-
-      console.log('edition logic', formattedDate, formattedTime);
+      formattedDate = `${padZero(dateInput.getDate())}.${padZero(dateInput.getMonth() + 1)}.${String(dateInput.getFullYear()).slice(-2)}`
+      formattedTime = `${padZero(timeInput.getHours())}:${padZero(timeInput.getMinutes())}`
     }
+
 
     if (isEdit) {
       console.log('edition logic')
