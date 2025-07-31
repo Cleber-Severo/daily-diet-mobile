@@ -1,22 +1,21 @@
+import { MealStorage } from "src/@types/meal";
 import { mealsGetAll } from "./mealsGetAll";
 
 export async function mealsGetItem(mealId: string) {
   try {
-    const mealsData = await mealsGetAll();
+    const currentMeals = (await mealsGetAll(true)) as MealStorage[];
 
-    const foundItem = mealsData.find((item) => item.data.some((meal) => meal.id === mealId));
+    const foundItem = currentMeals.find((item) => item.id === mealId);
 
     if (!foundItem) {
       throw new Error("Meal not found");
     }
 
-    const foundMeal = foundItem.data.find((meal) => meal.id === mealId);
-
-    if (!foundMeal) {
+    if (!foundItem) {
       throw new Error("Meal not found inside date group");
     }
 
-    return { ...foundMeal, date: foundItem.date };
+    return foundItem;
   } catch (error) {
     console.error("Failed to fetch meal:", error);
     throw error;

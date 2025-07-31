@@ -19,7 +19,7 @@ export async function mealsGetAll(rawData = false) {
       }
     }
 
-    if (rawData) return data;
+    if (rawData) return meals;
 
     const mealsData = meals.reduce((acc: MealListStorage[], current: MealStorage) => {
       const date = current.date ?? ""; // Garante que não seja undefined

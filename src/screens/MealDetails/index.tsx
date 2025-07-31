@@ -18,7 +18,6 @@ export function MealDetails() {
   const navigation = useNavigation();
   const route = useRoute()
   const { mealId } = route.params as RouteParams
-  console.log("🚀 ~ MealDetails ~ mealId:", mealId)
 
   const [meal, setMeal] = useState<MealStorage>({
     id: '',
@@ -29,14 +28,10 @@ export function MealDetails() {
     isOnDiet: false,
   }); const [modalVisible, setModalVisible] = useState(false);
 
-
-
-  console.log("🚀 ~ MealDetails ~ meal.hour:", meal.hour)
   const createTwoButtonAlert = () => setModalVisible(true)
 
   const fetchMeal = async () => {
     const mealData = await mealsGetItem(mealId);
-    console.log("🚀 ~ fetchMeal ~ mealData:", mealData);
 
     if (mealData) {
       setMeal(mealData);
