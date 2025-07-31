@@ -5,7 +5,7 @@ import { MealItem } from "@components/MealItem";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useCallback, useState } from "react";
 import { mealsGetAll } from "@storage/meals/mealsGetAll";
-import { MealListStorage } from "src/@types/meal";
+import { MealListStorage, MealStorage } from "src/@types/meal";
 
 const mealsList = [
   {
@@ -102,7 +102,7 @@ export function MealsSection() {
 
   async function fetchMeals() {
     try {
-      const data = await mealsGetAll();
+      const data = await mealsGetAll() as MealListStorage[];
 
       if (Array.isArray(data)) {
         setMealsList(data);
@@ -112,7 +112,7 @@ export function MealsSection() {
       }
     } catch (error) {
       console.log('fetchMeals ~ error:', error);
-      setMealsList([]); // fallback de segurança
+      setMealsList([]);
     }
   }
 
@@ -120,7 +120,6 @@ export function MealsSection() {
   useFocusEffect(
     useCallback(() => {
       fetchMeals()
-
     }, [])
   )
 

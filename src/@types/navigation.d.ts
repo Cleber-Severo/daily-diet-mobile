@@ -6,7 +6,9 @@ export declare global {
       createMeal: {
         mealId: string;
       };
-      editMeal: undefined;
+      editMeal: {
+        mealId: string;
+      };
       mealForm: {
         situation: "create" | "edit";
         mealId: string;

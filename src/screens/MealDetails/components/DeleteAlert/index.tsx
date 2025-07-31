@@ -11,7 +11,7 @@ interface Props {
 }
 
 interface RouteParams {
-
+  mealId: string
 }
 
 export default function DeleteAlert({ modalVisible, setModalVisible }: Props) {

@@ -19,6 +19,7 @@ export function MealDetails() {
   const route = useRoute()
   const { mealId } = route.params as RouteParams
 
+  const [modalVisible, setModalVisible] = useState(false);
   const [meal, setMeal] = useState<MealStorage>({
     id: '',
     name: '',
@@ -26,7 +27,7 @@ export function MealDetails() {
     date: '',
     hour: '',
     isOnDiet: false,
-  }); const [modalVisible, setModalVisible] = useState(false);
+  });
 
   const createTwoButtonAlert = () => setModalVisible(true)
 
@@ -80,7 +81,7 @@ export function MealDetails() {
           <Button
             title="Editar refeição"
             icon={<PencilSimpleLineIcon color={"#FFF"} size={18} />}
-            onPressFn={() => navigation.navigate('editMeal')}
+            onPressFn={() => navigation.navigate('editMeal', { mealId })}
           />
           <Button
             title="Excluir refeição"
