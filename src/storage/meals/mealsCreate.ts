@@ -6,28 +6,19 @@ import { mealsGetAll } from "./mealsGetAll";
 
 export async function mealsCreate(meal: IMeal) {
   try {
-    const mealStorage = await mealsGetAll();
+    const mealsDataRaw = await mealsGetAll(true);
+    const mealsData = Array.isArray(mealsDataRaw) ? mealsDataRaw : [];
 
     const newMeal = {
       id: uuidv4(),
       hour: meal.time,
+      date: meal.date,
       name: meal.name,
       description: meal.description,
       isOnDiet: meal.isOnDiet,
     };
 
-    const existingMealIndex = mealStorage.findIndex((item) => item.date === meal.date);
-
-    if (existingMealIndex >= 0) {
-      mealStorage[existingMealIndex].data.push(newMeal);
-    } else {
-      mealStorage.push({
-        date: meal.date,
-        data: [newMeal],
-      });
-    }
-
-    const storage = JSON.stringify(mealStorage);
+    const storage = JSON.stringify([...mealsData, newMeal]);
 
     await AsyncStorage.setItem(MEALS_COLLECTION, storage);
   } catch (error) {

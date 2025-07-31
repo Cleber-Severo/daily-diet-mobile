@@ -57,7 +57,6 @@ const MealForm = ({ payload = {} }) => {
     const mealStorage = await mealsGetAll()
 
     if (!date || !time) {
-      console.log("Date or time not selected")
       return
     }
 
@@ -69,8 +68,8 @@ const MealForm = ({ payload = {} }) => {
     const mealPayload = {
       name,
       description,
-      date: formatDate(date),
-      time: formatTime(time),
+      date: formattedDate,
+      time: formattedTime,
       isOnDiet: isOnDiet ?? false,
     }
 

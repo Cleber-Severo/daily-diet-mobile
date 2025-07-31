@@ -102,10 +102,17 @@ export function MealsSection() {
 
   async function fetchMeals() {
     try {
-      const data = await mealsGetAll()
-      setMealsList(data)
+      const data = await mealsGetAll();
+
+      if (Array.isArray(data)) {
+        setMealsList(data);
+      } else {
+        console.warn('mealsGetAll returned non-array:', data);
+        setMealsList([]);
+      }
     } catch (error) {
-      console.log(' fetchGroups ~ error:', error)
+      console.log('fetchMeals ~ error:', error);
+      setMealsList([]); // fallback de segurança
     }
   }
 
