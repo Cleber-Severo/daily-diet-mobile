@@ -2,7 +2,7 @@
 
 **Daily Diet** is a simple and elegant mobile app built with **React Native**, **TypeScript**, and **Styled Components** that helps users track their daily meals and maintain healthy eating habits. Whether you're on or off your diet plan, Daily Diet helps you stay accountable and track your progress.
 
-<p align="center">
+<p align="left">
   <img src="./assets/app.png" alt="Daily Diet Screenshot" width="200"/>
 </p>
 
