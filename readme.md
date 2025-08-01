@@ -63,4 +63,5 @@
 ```bash
 git clone https://github.com/your-username/daily-diet.git
 cd daily-diet
-pnpm install
+npm install
+npx expo start
